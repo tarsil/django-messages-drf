@@ -1,4 +1,4 @@
-# Pinax Messages DRF
+# Django Messages DRF
 
 ## About Django Messages DRF
 
