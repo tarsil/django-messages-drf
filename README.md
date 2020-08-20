@@ -19,9 +19,9 @@ messaging.
 
 Django / Python | 3.6 | 3.7 | 3.8
 --------------- | --- | --- | ---
-2.2  |  *  |  *  |  *
-3.0  |  *  |  *  |  *
-3.1  |  *  |  *  |  *
+2.2  |  *|*  |  *
+3.0  |  *|*  |  *
+3.1  |  *|*  |  *
 
 ## Documentation
 
@@ -30,7 +30,7 @@ Django / Python | 3.6 | 3.7 | 3.8
 To install django-messages:
 
 ```shell
-    $ pip install django-messages-drf
+    pip install django-messages-drf
 ```
 
 Add `django_messages_drf` to your `INSTALLED_APPS` setting:
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 Run Django migrations to create `django-messages-drf` database tables:
 
 ```shell
-    $ python manage.py migrate
+    python manage.py migrate
 ```
 
 Add `django_messages_drf.urls` to your project urlpatterns:
@@ -73,24 +73,21 @@ Add `django_messages_drf.urls` to your project urlpatterns:
 
 These URL names are available when using django_messages_drf urls.py:
 
-`django_messages_drf:inbox` — Inbox view.
-`django_messages_drf:thread` — Lists the details of a tread of a User.
+- `django_messages_drf:inbox` — Inbox view.
+- `django_messages_drf:thread` — Lists the details of a tread of a User.
 Requires a UUID of a thread.
-`django_messages_drf:thread-create` — Create new message to specific user.
+- `django_messages_drf:thread-create` — Create new message to specific user.
 Requires a User PK (user to send).
-`django_messages_drf:thread-send` — Replies to a thread. requires thread UUID.
-`django_messages_drf:thread-delete` — Delete message thread, requires thread
+- `django_messages_drf:thread-send` — Replies to a thread. requires thread UUID.
+- `django_messages_drf:thread-delete` — Delete message thread, requires thread
 UUID.
 
 #### Views
 
-`InboxListApiView` - Display all message threads
-
-`ThreadCRUDApiView` - Create a new message thread/Reply to Thread
-
-`ThreadListApiView` - View specific message thread
-
-`ThreadCRUDApiView` - Delete specific message thread
+- `InboxListApiView` - Display all message threads
+- `ThreadCRUDApiView` - Create a new message thread/Reply to Thread
+- `ThreadListApiView` - View specific message thread
+- `ThreadCRUDApiView` - Delete specific message thread
 
 #### Signals
 
@@ -100,7 +97,7 @@ UUID.
 
 ### 1.0.0
 
-* initial release
+- Initial release
 
 ## License
 
