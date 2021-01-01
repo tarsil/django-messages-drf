@@ -41,11 +41,11 @@ messaging.
 
 #### Supported Django and Python Versions
 
-Django / Python | 3.6 | 3.7 | 3.8
---------------- | --- | --- | ---
-2.2  |  *|*  |  *
-3.0  |  *|*  |  *
-3.1  |  *|*  |  *
+Django / Python | 3.6 | 3.7 | 3.8 | 3.9
+--------------- | --- | --- | --- | ---
+2.2  | * | * | * | *
+3.0  | * | * | * | *
+3.1  | * | * | * | *
 
 ## Documentation
 
@@ -85,8 +85,8 @@ Add `django_messages_drf.urls` to your project urlpatterns:
 
 #### URL–View–Template Matrix
 
-| URL Name                             | View                  |
-| ------------------------------------ | --------------------- |
+| URL Name  | View   |
+| :-------- | :----- |
 | `django_messages_drf:inbox`               | `InboxListApiView()` |
 | `django_messages_drf:thread`      | `ThreadListApiView()` |
 | `django_messages_drf:thread-create` | `ThreadCRUDApiView()` |
@@ -117,14 +117,14 @@ UUID.
 
 `message_sent` — `providing_args = ["message", "thread", "reply"]`
 
-## Change Log
+## ChangeLog
 
 ### 1.0.1
 
 - Fixed tests naming conflicts.
 - Fixed migration issues.
 - Updated README.md to make it clearer.
-- Added circleci config
+- Added CircleCI config
 
 ### 1.0.0
 

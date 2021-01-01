@@ -92,6 +92,24 @@ jobs:
       - image: circleci/python:3.8
         environment:
           TOXENV=py38-dj31
+  py39dj22:
+    <<: *common
+    docker:
+      - image: circleci/python:3.9
+        environment:
+          TOXENV=py38-dj22
+  py39dj30:
+    <<: *common
+    docker:
+      - image: circleci/python:3.9
+        environment:
+          TOXENV=py38-dj30
+  py39dj31:
+    <<: *common
+    docker:
+      - image: circleci/python:3.9
+        environment:
+          TOXENV=py38-dj31
 
 workflows:
   version: 2
@@ -107,3 +125,6 @@ workflows:
       - py38dj22
       - py38dj30
       - py38dj31
+      - py39dj22
+      - py39dj30
+      - py39dj31
