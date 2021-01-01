@@ -27,11 +27,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Thread',
             fields=[
-                ('auditmodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='messages_drf.AuditModel')),
+                ('auditmodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='django_messages_drf.AuditModel')),
                 ('uuid', models.UUIDField(default=uuid.uuid4, editable=False)),
                 ('subject', models.CharField(max_length=150)),
             ],
-            bases=('messages_drf.auditmodel',),
+            bases=('django_messages_drf.auditmodel',),
         ),
         migrations.CreateModel(
             name='UserThread',
@@ -41,13 +41,13 @@ class Migration(migrations.Migration):
                 ('unread', models.BooleanField()),
                 ('deleted', models.BooleanField()),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('thread', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='messages_drf.Thread')),
+                ('thread', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_messages_drf.Thread')),
             ],
         ),
         migrations.AddField(
             model_name='thread',
             name='users',
-            field=models.ManyToManyField(through='messages_drf.UserThread', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(through='django_messages_drf.UserThread', to=settings.AUTH_USER_MODEL),
         ),
         migrations.CreateModel(
             name='Message',
@@ -57,7 +57,7 @@ class Migration(migrations.Migration):
                 ('sent_at', models.DateTimeField(default=django.utils.timezone.now)),
                 ('content', models.TextField()),
                 ('sender', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sent_messages', to=settings.AUTH_USER_MODEL)),
-                ('thread', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='messages', to='messages_drf.Thread')),
+                ('thread', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='messages', to='django_messages_drf.Thread')),
             ],
             options={
                 'ordering': ('sent_at',),

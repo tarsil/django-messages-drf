@@ -1,5 +1,26 @@
 # Django Messages DRF
 
+---
+
+## Table of Contents
+
+- [About Django Messages DRF](#about-django-messages-drf)
+  - [Overview](#overview)
+  - [Versions](#supported-django-and-python-versions)
+- [Documentation](#documentation)
+  - [Installation](#installation)
+  - [Reference Guide](#reference-guide)
+    - [Matrix](#url–view–template-matrix)
+    - [URL Names](#url-names)
+    - [Views](#views)
+    - [Signals](#signals)
+- [CHANGELOG](#changelog)
+  - [1.0.1](#1-0-1)
+  - [1.0.0](#1-0-0)
+- [License](#license)
+
+---
+
 ## About Django Messages DRF
 
 Django Messages DRF is an alternative of django_messages_drf but using
@@ -63,11 +84,11 @@ Add `django_messages_drf.urls` to your project urlpatterns:
 
 | URL Name                             | View                  |
 | ------------------------------------ | --------------------- |
-| `django_messages_drf:inbox`               | `InboxListApiView()`
-| `django_messages_drf:thread`      | `ThreadListApiView()`
-| `django_messages_drf:thread-create` | `ThreadCRUDApiView()`
-| `django_messages_drf:thread-send`       | `ThreadCRUDApiView()`
-| `django_messages_drf:thread-delete`       | `ThreadCRUDApiView()`
+| `django_messages_drf:inbox`               | `InboxListApiView()` |
+| `django_messages_drf:thread`      | `ThreadListApiView()` |
+| `django_messages_drf:thread-create` | `ThreadCRUDApiView()` |
+| `django_messages_drf:thread-send`       | `ThreadCRUDApiView()` |
+| `django_messages_drf:thread-delete`       | `ThreadCRUDApiView()` |
 
 #### URL Names
 
@@ -94,6 +115,13 @@ UUID.
 `message_sent` — `providing_args = ["message", "thread", "reply"]`
 
 ## Change Log
+
+### 1.0.1
+
+- Fixed tests naming conflicts.
+- Fixed migration issues.
+- Updated README.md to make it clearer.
+- Added circleci config
 
 ### 1.0.0
 
