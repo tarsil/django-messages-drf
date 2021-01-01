@@ -18,8 +18,9 @@
     - [Views](#views)
     - [Signals](#signals)
 - [CHANGELOG](#changelog)
-  - [1.0.1](#1-0-1)
-  - [1.0.0](#1-0-0)
+  - [1.0.1](#103)
+  - [1.0.1](#101)
+  - [1.0.0](#100)
 - [License](#license)
 
 ---
@@ -118,6 +119,10 @@ UUID.
 `message_sent` — `providing_args = ["message", "thread", "reply"]`
 
 ## ChangeLog
+
+### 1.0.2
+
+- Added support for python 3.9
 
 ### 1.0.1
 
