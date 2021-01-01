@@ -63,6 +63,6 @@ setup(
         "factory-boy>=3.0.1",
         "django-webtest>=1.9.7"
     ],
-    test_suite="runtests.runtests",
+    test_suite="tests.runtests",
     zip_safe=False
 )

@@ -3,12 +3,10 @@ import uuid
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
+import django_messages_drf.tests.factories
 from django_webtest import WebTest
 
-import django_messages_drf.tests.factories
-from django_messages_drf.models import Message, Thread, UserThread
-
-from ..models import Message, Thread
+from ..models import Message, Thread, UserThread
 
 
 class BaseTest(WebTest):
@@ -65,8 +63,8 @@ class BaseTest(WebTest):
 
         self.assertEqual(403, response.status_code)
 
-    def test_can_get_thread_endpoint(self):
-        """User can get to the thread endpoint"""
+    def test_can_get_thread_post_endpoint(self):
+        """User can get to the thread post endpoint"""
         user = django_messages_drf.tests.factories.UserFactory()
         user_to_send = django_messages_drf.tests.factories.UserFactory()
         url = reverse("django_messages_drf:thread-create", kwargs={'user_id': user_to_send.id})
