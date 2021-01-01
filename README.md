@@ -18,7 +18,7 @@
     - [Views](#views)
     - [Signals](#signals)
 - [CHANGELOG](#changelog)
-  - [1.0.2](#103)
+  - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0.0](#100)
 - [License](#license)
