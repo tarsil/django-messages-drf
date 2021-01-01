@@ -18,7 +18,7 @@
     - [Views](#views)
     - [Signals](#signals)
 - [CHANGELOG](#changelog)
-  - [1.0.1](#103)
+  - [1.0.2](#103)
   - [1.0.1](#101)
   - [1.0.0](#100)
 - [License](#license)
@@ -42,11 +42,11 @@ messaging.
 
 #### Supported Django and Python Versions
 
-Django / Python | 3.6 | 3.7 | 3.8 | 3.9
---------------- | --- | --- | --- | ---
-2.2  | * | * | * | *
-3.0  | * | * | * | *
-3.1  | * | * | * | *
+| Django / Python | 3.6 | 3.7 | 3.8 | 3.9
+| --------------- | --- | --- | --- | ---
+| 2.2  | Yes | Yes | Yes | Yes
+| 3.0  | Yes | Yes | Yes | Yes
+| 3.1  | Yes | Yes | Yes | Yes
 
 ## Documentation
 

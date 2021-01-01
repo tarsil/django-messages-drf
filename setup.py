@@ -1,33 +1,18 @@
 from setuptools import find_packages, setup
 
-VERSION = "1.0.1"
-LONG_DESCRIPTION = """
----
-# Django Messages DRF
----
+VERSION = "1.0.2"
 
-`django-messages-drf` is an alternative of `pinax-messages` using django rest framework.
-
-Supported Django and Python Versions
-------------------------------------
-
-+-----------------+-----+-----+-----+
-| Django / Python | 3.6 | 3.7 | 3.8 |
-+=================+=====+=====+=====+
-|  2.2            |  *  |  *  |  *  |
-+-----------------+-----+-----+-----+
-|  3.0            |  *  |  *  |  *  |
-+-----------------+-----+-----+-----+
-|  3.1            |  *  |  *  |  *  |
-+-----------------+-----+-----+-----+
-"""
+def read(fname):
+    with open(fname) as fp:
+        content = fp.read()
+    return content
 
 setup(
     author="Tiago A. Silva",
     author_email="tiago.arasilva@gmail.com",
     description="a reusable private user messages application for Django with Django Rest Framework",
     name="django-messages-drf",
-    long_description=LONG_DESCRIPTION,
+    long_description=read('README.md'),
     long_description_content_type='text/markdown',
     version=VERSION,
     url="https://github.com/tiagoarasilva/django-messages-drf",
