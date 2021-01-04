@@ -2,9 +2,8 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 
 import django_messages_drf.tests.factories
-from django_messages_drf.models import Message, Thread, UserThread
 
-from ..models import Message, Thread
+from ..models import Message, Thread, UserThread
 
 
 class BaseTest(TestCase):

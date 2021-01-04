@@ -1,8 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 
-import messages_drf.tests.factories
-from messages_drf.models import Message, Thread, UserThread
+import django_messages_drf.tests.factories
+
+from ..models import Message, Thread, UserThread
 
 
 class BaseTest(TestCase):
@@ -18,22 +19,22 @@ class MessageModelTestCase(BaseTest):
 
     def test_can_create_thread(self):
         """System can create a Thread"""
-        thread = messages_drf.tests.factories.ThreadFactory()
+        thread = django_messages_drf.tests.factories.ThreadFactory()
 
         self.assertIsNotNone(thread)
 
     def test_can_create_message(self):
         """System can create a message"""
-        message = messages_drf.tests.factories.MessageFactory()
+        message = django_messages_drf.tests.factories.MessageFactory()
 
         self.assertIsNotNone(message)
 
     def test_user_can_have_one_assign_thread(self):
         """A specific user is assigned to a thread"""
-        user = messages_drf.tests.factories.UserFactory(
+        user = django_messages_drf.tests.factories.UserFactory(
             first_name="test", last_name="user", email="test@user.com"
         )
-        user_two = messages_drf.tests.factories.UserFactory(
+        user_two = django_messages_drf.tests.factories.UserFactory(
             first_name="test2", last_name="user2", email="test2@user2.com"
         )
 
