@@ -27,11 +27,10 @@
 
 ## About Django Messages DRF
 
-Django Messages DRF is an alternative of django_messages_drf but using
+Django Messages DRF is an alternative of pinax-messages but using
 Django Rest Framework making it easier to integrate with your existing project.
 
-Django Messages DRF is based on django_messages_drf way of implementing
-but applying DRF.
+Django Messages DRF is based on pinax-messages but applying DRF.
 
 A special thanks to pinax for inspiring me to do this and use some ideas.
 
