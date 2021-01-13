@@ -21,6 +21,6 @@ Python 3.6+
 
 | Django / Python | 3.6 | 3.7 | 3.8 | 3.9
 | --------------- | --- | --- | --- | ---
-| 2.2  | Yes | Yes | Yes | Yes
-| 3.0  | Yes | Yes | Yes | Yes
-| 3.1  | Yes | Yes | Yes | Yes
+| 2.2  | Yes | Yes | Yes | Yes |
+| 3.0  | Yes | Yes | Yes | Yes |
+| 3.1  | Yes | Yes | Yes | Yes |

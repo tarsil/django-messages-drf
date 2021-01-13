@@ -16,7 +16,7 @@
   "MD012": true,
   "MD013": {
     "code_blocks": false,
-    "line_length": 80,
+    "line_length": 100,
     "tables": false
   },
   "MD024": {

@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 from rest_framework import serializers
 
+from .mixins import CurrentThreadDefault
 from .models import Message, Thread
 
 
@@ -43,13 +44,13 @@ class InboxSerializer(serializers.ModelSerializer):
         fields = ('uuid', 'subject', 'sender', 'sent_at', 'total_unread', 'last_message')
 
     def get_last_message(self, instance):
-        message = instance.last_message(self.user)
+        message = instance.last_message()
         if message:
             return message.content[:50]
 
     def get_sender(self, instance):
         serializer = SenderReceiverSerializer(context=self.context)
-        message = instance.last_message(self.user)
+        message = instance.last_message()
         if message:
             return serializer.to_representation(message.sender)
 
@@ -103,3 +104,33 @@ class ThreadReplySerializer(serializers.Serializer):
             'blank': _("The subject cannot be empty"),
         }
     )
+
+
+class EditMessageSerializer(serializers.ModelSerializer):
+    """
+    Specifically edits a message
+    """
+    uuid = serializers.UUIDField(
+        required=True, error_messages={
+            'blank': _("The message cannot be empty"),
+            'null': _("The message cannot be empty")
+        }
+    )
+    content = serializers.CharField(
+        required=True, allow_null=False, allow_blank=False, error_messages={
+            'blank': _("The message cannot be empty"),
+        }
+    )
+    sender = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    thread = serializers.HiddenField(default=CurrentThreadDefault())
+
+    class Meta:
+        model = Message
+        exclude = ('id',)
+
+    def update(self, instance, validated_data):
+        instance.content = validated_data.get('content', instance.content)
+        instance.sender = validated_data.get('sender', instance.sender)
+        instance.thread = validated_data.get('thread', instance.thread)
+        instance.save()
+        return instance
