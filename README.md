@@ -27,10 +27,8 @@
 
 ## About Django Messages DRF
 
-Django Messages DRF is an alternative of pinax-messages but using
-Django Rest Framework making it easier to integrate with your existing project.
-
-Django Messages DRF is based on pinax-messages but applying DRF.
+Django Messages DRF is an alternative and based on pinax-messages but using
+Django Rest Framework by making it easier to integrate with your existing project.
 
 A special thanks to pinax for inspiring me to do this and use some ideas.
 
@@ -54,10 +52,10 @@ messaging.
 To install django-messages:
 
 ```shell
-    pip install django-messages-drf
+$ pip3 install starlette
 ```
 
-Add `django_messages_drf` to your `INSTALLED_APPS` setting:
+Add `django_messages_drf` to your `INSTALLED_APPS`:
 
 ```python
 INSTALLED_APPS = [
@@ -69,7 +67,7 @@ INSTALLED_APPS = [
 Run Django migrations to create `django-messages-drf` database tables:
 
 ```shell
-    python manage.py migrate
+$ python manage.py migrate
 ```
 
 Add `django_messages_drf.urls` to your project urlpatterns:
@@ -122,9 +120,6 @@ UUID.
 ### 1.0.2
 
 - Added support for python 3.9
-
-### 1.0.1
-
 - Fixed tests naming conflicts.
 - Fixed migration issues.
 - Updated README.md to make it clearer.

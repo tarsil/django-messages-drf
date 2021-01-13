@@ -18,6 +18,14 @@ test: ## Runs the tests
 	tox --parallel--safe-build
 	coverage html
 
+.PHONY: docs
+docs: ## Runs the local docs
+	mkdocs serve
+
+.PHONY: build-docs
+build-docs: ## Runs the local docs
+	mkdocs build
+
 ifndef VERBOSE
 .SILENT:
 endif
