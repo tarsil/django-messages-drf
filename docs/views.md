@@ -4,6 +4,8 @@ Django Messages DRF comes initially with a set of views that allows you
 to apply in your projects. All the views are in Django Rest Framework and allowing customization
 up to a certain level.
 
+All of the serializers are provided by the settings and allows overriding from there.
+
 ---
 
 ## List of Views
@@ -11,6 +13,7 @@ up to a certain level.
 1. [InboxListApiView](#inboxlistapiview)
 2. [ThreadListApiView](#threadlistapiview)
 3. [ThreadCRUDApiView](#threadcrudapiview)
+4. [EditMessageApiView](#editmessageapiview)
 
 ---
 
@@ -204,4 +207,60 @@ class MyCustomSerializer(serializers.ModelSerializer):
 
 class MyThreadCRUDApiView(ThreadCRUDApiView):
   serializer_class = MyCustomSerializer
+```
+
+## __EditMessageApiView__
+
+```python
+class EditMessageApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserContextView, APIView):
+    """
+    Edits a message sent from a user in a given thread
+    """
+    serializer_class = EDIT_MESSAGE_SERIALIZER
+
+    def get_instance(self, user, message_uuid):
+        """
+        Checks of the message exists
+        """
+        try:
+            return Message.objects.get(sender=user, uuid=message_uuid)
+        except Message.DoesNotExist:
+            return
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context.update({
+            'thread': self.get_thead_by_id(),
+        })
+        return context
+
+    def put(self, request, user_id, thread_id, *args, **kwargs):
+        """
+        Edits a mensage in given thread.
+
+        1. Gets the user_id from the URL.
+        2. From the request.data gets the uuid of the message
+        3. Validates
+        4. Saves and returns
+        """
+        user = self.get_user()
+
+        if not user:
+            raise NotFound()
+
+        if (not user.pk == request.user.pk):
+            raise PermissionDenied()
+
+        # Get the instance of the message for a given user
+        instance = self.get_instance(user, request.data.get('uuid'))
+        if not instance:
+            raise NotFound()
+
+        serializer = self.serializer_class(instance, data=request.data, context=self.get_serializer_context())
+        serializer.is_valid(raise_exception=True)
+        instance = serializer.save()
+
+        message = MessageSerializer(instance, context=self.get_serializer_context())
+        return Response(message.data, status=status.HTTP_200_OK)
+
 ```

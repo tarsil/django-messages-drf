@@ -16,6 +16,7 @@ In your **`settings.py`**.
 | __DJANGO_MESSAGES_DRF_INBOX_SERIALIZER__ | InboxListApiView | InboxSerializer |
 | __DJANGO_MESSAGES_DRF_THREAD_SERIALIZER__ | ThreadListApiView | ThreadSerializer |
 | __DJANGO_MESSAGES_DRF_MESSAGE_SERIALIZER__ | ThreadCRUDApiView | ThreadReplySerializer |
+| __DJANGO_MESSAGES_DRF_EDIT_MESSAGE_SERIALIZER__ | EditMessageApiView | EditMessageSerializer |
 
 ## Usage
 

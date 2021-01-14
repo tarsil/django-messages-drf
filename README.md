@@ -16,9 +16,6 @@ __Official Documentation__ - https://tarsil.github.io/django-messages-drf/
   - [Installation](#installation)
   - [Reference Guide](#reference-guide)
     - [Matrix](#url–view–template-matrix)
-    - [URL Names](#url-names)
-    - [Views](#views)
-    - [Signals](#signals)
 - [CHANGELOG](docs/release-notes.md)
 - [Documentation and Support](#documentation-and-support)
 - [License](#license)
@@ -85,41 +82,17 @@ Add `django_messages_drf.urls` to your project urlpatterns:
 
 | URL Name  | View   |
 | :-------- | :----- |
-| `django_messages_drf:inbox`               | `InboxListApiView()` |
-| `django_messages_drf:thread`      | `ThreadListApiView()` |
-| `django_messages_drf:thread-create` | `ThreadCRUDApiView()` |
-| `django_messages_drf:thread-send`       | `ThreadCRUDApiView()` |
-| `django_messages_drf:thread-delete`       | `ThreadCRUDApiView()` |
-
-#### URL Names
-
-These URL names are available when using django_messages_drf urls.py:
-
-- `django_messages_drf:inbox` — Inbox view.
-- `django_messages_drf:thread` — Lists the details of a tread of a User.
-Requires a UUID of a thread.
-- `django_messages_drf:thread-create` — Create new message to specific user.
-Requires a User PK (user to send).
-- `django_messages_drf:thread-send` — Replies to a thread. requires thread UUID.
-- `django_messages_drf:thread-delete` — Delete message thread, requires thread
-UUID.
-
-#### Views
-
-- `InboxListApiView` - Display all message threads
-- `ThreadCRUDApiView` - Create a new message thread/Reply to Thread
-- `ThreadListApiView` - View specific message thread
-- `ThreadCRUDApiView` - Delete specific message thread
-- `ThreadCRUDApiView` - Delete specific message thread
-
-#### Signals
-
-`message_sent` — `providing_args = ["message", "thread", "reply"]`
-
-## License
-
-Copyright (c) 2020-present Tiago Silva and contributors under the [MIT license](https://opensource.org/licenses/MIT).
+| `django_messages_drf:inbox`               | `InboxListApiView` |
+| `django_messages_drf:thread`      | `ThreadListApiView` |
+| `django_messages_drf:thread-create` | `ThreadCRUDApiView` |
+| `django_messages_drf:thread-send`       | `ThreadCRUDApiView` |
+| `django_messages_drf:thread-delete`       | `ThreadCRUDApiView` |
+| `django_messages_drf:message-edit`       | `EditMessageApiView` |
 
 ## Documentation and Support
 
 Full documentation for the project is available at https://tarsil.github.io/django-messages-drf/
+
+## License
+
+Copyright (c) 2020-present Tiago Silva and contributors under the [MIT license](https://opensource.org/licenses/MIT).
