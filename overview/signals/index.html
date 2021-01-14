@@ -251,19 +251,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../reference-guide/" class="md-nav__link">
-      Reference Guide
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
     <a href="../url-names/" class="md-nav__link">
       URLs
     </a>
@@ -305,6 +292,19 @@
   </li>
 
         
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../reference-guide/" class="md-nav__link">
+      Reference Guide
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -316,10 +316,130 @@
 
 
 
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    
+    <label class="md-nav__link" for="nav-3">
+      Structure
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Structure" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Structure
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../models/" class="md-nav__link">
+      Models
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
   <li class="md-nav__item">
     <a href="../../views/" class="md-nav__link">
       Views
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../serializers/" class="md-nav__link">
+      Serializers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../settings/" class="md-nav__link">
+      Settings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../permissions/" class="md-nav__link">
+      Permissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../pagination/" class="md-nav__link">
+      Pagination
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../mixins/" class="md-nav__link">
+      Mixins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../utils/" class="md-nav__link">
+      Utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -367,8 +487,8 @@
                 
                 <h1 id="signals">Signals<a class="headerlink" href="#signals" title="Permanent link">&para;</a></h1>
 <p>We only provide one signal at the moment.</p>
-<pre><code class="language-python">message_sent` — `providing_args = [&quot;message&quot;, &quot;thread&quot;, &quot;reply&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">message_sent</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="n">providing_args</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="s2">&quot;thread&quot;</span><span class="p">,</span> <span class="s2">&quot;reply&quot;</span><span class="p">])</span>
+</code></pre></div>
                 
               
               
@@ -402,13 +522,13 @@
           </a>
         
         
-          <a href="../../views/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../reference-guide/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Views
+                Reference Guide
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -441,7 +561,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: ['navigation.expand'],
+          features: [],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

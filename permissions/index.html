@@ -16,7 +16,7 @@
     
     
       
-        <title>Installation - Django Messages DRF</title>
+        <title>Permissions - Django Messages DRF</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#permissions" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Installation
+              Permissions
             
           </span>
         </div>
@@ -210,14 +210,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
     
     <label class="md-nav__link" for="nav-2">
       Overview
@@ -236,20 +234,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../installation/" class="md-nav__link">
       Installation
     </a>
-    
   </li>
 
         
@@ -315,12 +304,14 @@
       
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Structure
@@ -391,11 +382,83 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../permissions/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Permissions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Permissions
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#accessmixin" class="md-nav__link">
+    AccessMixin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djangomessagedrfauthmixin" class="md-nav__link">
+    DjangoMessageDRFAuthMixin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-djangomessagedrfauthmixin" class="md-nav__link">
+    With DjangoMessageDRFAuthMixin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#without-djangomessagedrfauthmixin" class="md-nav__link">
+    Without DjangoMessageDRFAuthMixin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -474,6 +537,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#accessmixin" class="md-nav__link">
+    AccessMixin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djangomessagedrfauthmixin" class="md-nav__link">
+    DjangoMessageDRFAuthMixin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-djangomessagedrfauthmixin" class="md-nav__link">
+    With DjangoMessageDRFAuthMixin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#without-djangomessagedrfauthmixin" class="md-nav__link">
+    Without DjangoMessageDRFAuthMixin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -485,25 +597,93 @@
               
                 
                 
-                <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>$ pip install django-messages-drf
+                <h1 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h1>
+<p>A small set of permissions are set in the app to make sure the data is safer and secure and those
+can be also extended.</p>
+<hr />
+<ol>
+<li><a href="#accessmixin">AccessMixin</a></li>
+<li><a href="#djangomessagedrfauthmixin">DjangoMessageDRFAuthMixin</a></li>
+</ol>
+<hr />
+<h2 id="accessmixin">AccessMixin<a class="headerlink" href="#accessmixin" title="Permanent link">&para;</a></h2>
+<p>Base class of all permission mixins of Django Messages DRF. Adds an extension for the permissions of
+Django Rest Framework where you can now append into a list instead of repeating on every class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">AccessMixin</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">DjangoMessageDRFAuthMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Django rest framework doesn&#39;t append permission_classes on inherited models which can cause</span>
+<span class="sd">    issues when it comes to call an API programmatically, this way we create a metaclass that will</span>
+<span class="sd">    read from a property custom from our subclasses and will append to the default</span>
+<span class="sd">    `permission_classes` on the subclasses of AccessMixin.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
 </code></pre></div>
-<p>Add <code>django_messages_drf</code> to your <code>INSTALLED_APPS</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="o">...</span>
-  <span class="s2">&quot;django_messages_drf&quot;</span><span class="p">,</span>
-  <span class="o">...</span>
-<span class="p">]</span>
+<h2 id="djangomessagedrfauthmixin">DjangoMessageDRFAuthMixin<a class="headerlink" href="#djangomessagedrfauthmixin" title="Permanent link">&para;</a></h2>
+<p>Base class of all views of the application and sets the principle that every view inheriting from
+this will validate the user authentication.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">DjangoMessageDRFAuthMixin</span><span class="p">(</span><span class="n">AccessMixin</span><span class="p">,</span> <span class="n">APIView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base APIView requiring login credentials to access it from the inside of the platform</span>
+<span class="sd">    Or via request (if known)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsAuthenticated</span><span class="p">]</span>
+    <span class="n">pagination_class</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the views contain the `permissions` attribute and overrides the</span>
+<span class="sd">        `permission_classes`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">permission_classes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">permissions</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pagination_class</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">rest_settings</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">REST_FRAMEWORK</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="n">rest_settings</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">page_size</span> <span class="o">=</span> <span class="n">rest_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PAGE_SIZE&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pagination_class</span><span class="o">.</span><span class="n">page_size</span> <span class="o">=</span> <span class="n">page_size</span>
 </code></pre></div>
-<p>Run Django migrations to create <code>django-messages-drf</code> database tables:</p>
-<div class="highlight"><pre><span></span><code>$ python manage.py migrate
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p>Using the <strong><code>DjangoMessageDRFAuthMixin</code></strong> as a base we can now start creating our own views without
+thinking about replicating the <code>permission_classes</code>.</p>
+<h3 id="with-djangomessagedrfauthmixin">With DjangoMessageDRFAuthMixin<a class="headerlink" href="#with-djangomessagedrfauthmixin" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
+
+<span class="kn">from</span> <span class="nn">django_messages_drf.permissions</span> <span class="kn">import</span> <span class="n">DjangoMessageDRFAuthMixin</span>
+<span class="kn">from</span> <span class="nn">my_app.permissions</span> <span class="kn">import</span> <span class="n">MyPermission</span>
+
+
+<span class="k">class</span> <span class="nc">MyCustomView</span><span class="p">(</span><span class="n">DjangoMessageDRFAuthMixin</span><span class="p">,</span> <span class="n">APiView</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  My Custom view that will do things</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyPermission</span><span class="p">]</span>
 </code></pre></div>
-<p>You'll also want to add <code>`django_messages_drf.urls</code> into your main urlpatterns.</p>
-<div class="highlight"><pre><span></span><code><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># other urls</span>
-    <span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^messages-drf/&quot;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&quot;django_messages_drf.urls&quot;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;django_messages_drf&quot;</span><span class="p">)),</span>
-<span class="p">]</span>
+<p>Importing the <code>APIView</code> is optional since the <code>DjangoMessageDRFAuthMixin</code> already implements it.</p>
+<p>Behind the scenes, Django Messages DRF is appending the <code>permissions</code> to <code>permission_classes</code> of
+Django Rest Framework, which means that if we query for the <code>permission_classes</code> we would have:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">permission_classes</span> <span class="o">=</span> <span class="o">[</span>IsAuthenticated, MyPermission<span class="o">]</span>
 </code></pre></div>
+<h3 id="without-djangomessagedrfauthmixin">Without DjangoMessageDRFAuthMixin<a class="headerlink" href="#without-djangomessagedrfauthmixin" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
+
+<span class="kn">from</span> <span class="nn">rest_framework.permissions</span> <span class="kn">import</span> <span class="n">IsAuthenticated</span>
+<span class="kn">from</span> <span class="nn">my_app.permissions</span> <span class="kn">import</span> <span class="n">MyPermission</span>
+
+
+<span class="k">class</span> <span class="nc">BaseView</span><span class="p">(</span><span class="n">APiView</span><span class="p">):</span>
+  <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsAuthenticated</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">MyCustomView</span><span class="p">(</span><span class="n">BaseView</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  My Custom view that will do things</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyPermission</span><span class="p">]</span>
+</code></pre></div>
+<p>This won't have the same result as the <code>DjangoMessageDRFAuthMixin</code> because what is doing is actually
+reassigning the <code>permission_classes</code> from the <code>BaseView</code> to the <code>MyCustomView</code>.</p>
                 
               
               
@@ -522,7 +702,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../settings/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -531,19 +711,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Introduction
+                Settings
               </div>
             </div>
           </a>
         
         
-          <a href="../overview/url-names/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../pagination/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                URLs
+                Pagination
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

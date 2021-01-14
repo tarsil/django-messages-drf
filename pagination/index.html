@@ -16,7 +16,7 @@
     
     
       
-        <title>Installation - Django Messages DRF</title>
+        <title>Pagination - Django Messages DRF</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#pagination" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Installation
+              Pagination
             
           </span>
         </div>
@@ -210,14 +210,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
     
     <label class="md-nav__link" for="nav-2">
       Overview
@@ -236,20 +234,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../installation/" class="md-nav__link">
       Installation
     </a>
-    
   </li>
 
         
@@ -315,12 +304,14 @@
       
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Structure
@@ -404,11 +395,56 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../pagination/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Pagination
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Pagination
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pagination_1" class="md-nav__link">
+    Pagination
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simplepagination" class="md-nav__link">
+    SimplePagination
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -474,6 +510,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pagination_1" class="md-nav__link">
+    Pagination
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simplepagination" class="md-nav__link">
+    SimplePagination
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -485,24 +543,60 @@
               
                 
                 
-                <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>$ pip install django-messages-drf
+                <h1 id="pagination">Pagination<a class="headerlink" href="#pagination" title="Permanent link">&para;</a></h1>
+<p>Two custom pagination classes are provided for the application. The information was gathered from
+<a href="https://gist.github.com/tarsil/6255492c273b682bb329ba3f8d623754">here</a>.</p>
+<hr />
+<ol>
+<li><a href="#pagination">Pagination</a></li>
+<li><a href="#simplepagination">SimplePagination</a></li>
+</ol>
+<hr />
+<h2 id="pagination_1">Pagination<a class="headerlink" href="#pagination_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Pagination</span><span class="p">(</span><span class="n">pagination</span><span class="o">.</span><span class="n">PageNumberPagination</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Custom paginator for REST API responses</span>
+<span class="sd">    &#39;links&#39;: {</span>
+<span class="sd">               &#39;next&#39;: next page url,</span>
+<span class="sd">               &#39;previous&#39;: previous page url</span>
+<span class="sd">            },</span>
+<span class="sd">            &#39;count&#39;: number of records fetched,</span>
+<span class="sd">            &#39;total_pages&#39;: total number of pages,</span>
+<span class="sd">            &#39;next&#39;: bool has next page,</span>
+<span class="sd">            &#39;previous&#39;: bool has previous page,</span>
+<span class="sd">            &#39;results&#39;: result set</span>
+<span class="sd">    })</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">get_paginated_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span>
+            <span class="s1">&#39;links&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;next&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_next_link</span><span class="p">(),</span>
+                <span class="s1">&#39;previous&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_previous_link</span><span class="p">()</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;pagination&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;previous_page&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">number</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">number</span> <span class="o">!=</span> <span class="mi">1</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;current_page&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
+                <span class="s1">&#39;next_page&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">has_next</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;page_size&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_size</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">paginator</span><span class="o">.</span><span class="n">count</span><span class="p">,</span>
+            <span class="s1">&#39;total_pages&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">paginator</span><span class="o">.</span><span class="n">num_pages</span><span class="p">,</span>
+            <span class="s1">&#39;next&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">has_next</span><span class="p">(),</span>
+            <span class="s1">&#39;previous&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">has_previous</span><span class="p">(),</span>
+            <span class="s1">&#39;results&#39;</span><span class="p">:</span> <span class="n">data</span>
+        <span class="p">})</span>
 </code></pre></div>
-<p>Add <code>django_messages_drf</code> to your <code>INSTALLED_APPS</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="o">...</span>
-  <span class="s2">&quot;django_messages_drf&quot;</span><span class="p">,</span>
-  <span class="o">...</span>
-<span class="p">]</span>
-</code></pre></div>
-<p>Run Django migrations to create <code>django-messages-drf</code> database tables:</p>
-<div class="highlight"><pre><span></span><code>$ python manage.py migrate
-</code></pre></div>
-<p>You'll also want to add <code>`django_messages_drf.urls</code> into your main urlpatterns.</p>
-<div class="highlight"><pre><span></span><code><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># other urls</span>
-    <span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^messages-drf/&quot;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&quot;django_messages_drf.urls&quot;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;django_messages_drf&quot;</span><span class="p">)),</span>
-<span class="p">]</span>
+<h2 id="simplepagination">SimplePagination<a class="headerlink" href="#simplepagination" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">SimplePagination</span><span class="p">(</span><span class="n">pagination</span><span class="o">.</span><span class="n">PageNumberPagination</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Custom paginator for REST API responses</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">get_paginated_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span>
+            <span class="s1">&#39;records_filtered&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">paginator</span><span class="o">.</span><span class="n">count</span><span class="p">,</span>
+            <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span>
+        <span class="p">})</span>
 </code></pre></div>
                 
               
@@ -522,7 +616,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../permissions/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -531,19 +625,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Introduction
+                Permissions
               </div>
             </div>
           </a>
         
         
-          <a href="../overview/url-names/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mixins/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                URLs
+                Mixins
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

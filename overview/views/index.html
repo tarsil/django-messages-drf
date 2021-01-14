@@ -251,19 +251,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../reference-guide/" class="md-nav__link">
-      Reference Guide
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
     <a href="../url-names/" class="md-nav__link">
       URLs
     </a>
@@ -305,6 +292,19 @@
   </li>
 
         
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../reference-guide/" class="md-nav__link">
+      Reference Guide
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -316,10 +316,130 @@
 
 
 
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    
+    <label class="md-nav__link" for="nav-3">
+      Structure
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Structure" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Structure
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../models/" class="md-nav__link">
+      Models
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
   <li class="md-nav__item">
     <a href="../../views/" class="md-nav__link">
       Views
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../serializers/" class="md-nav__link">
+      Serializers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../settings/" class="md-nav__link">
+      Settings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../permissions/" class="md-nav__link">
+      Permissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../pagination/" class="md-nav__link">
+      Pagination
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../mixins/" class="md-nav__link">
+      Mixins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../utils/" class="md-nav__link">
+      Utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -367,12 +487,32 @@
                 
                 <h1 id="views">Views<a class="headerlink" href="#views" title="Permanent link">&para;</a></h1>
 <p>The available views of the package, below.</p>
-<ul>
-<li><code>InboxListApiView</code> - Display all message threads</li>
-<li><code>ThreadCRUDApiView</code> - Create a new message thread/Reply to Thread</li>
-<li><code>ThreadListApiView</code> - View specific message thread</li>
-<li><code>ThreadCRUDApiView</code> - Delete specific message thread</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>InboxListApiView</strong></td>
+<td align="left">Display all message threads.</td>
+</tr>
+<tr>
+<td align="left"><strong>ThreadCRUDApiView</strong></td>
+<td align="left">Create a new message thread/Reply to Thread. Also Deletes a message.</td>
+</tr>
+<tr>
+<td align="left"><strong>ThreadListApiView</strong></td>
+<td align="left">View specific message thread.</td>
+</tr>
+<tr>
+<td align="left"><strong>EditMessageApiView</strong></td>
+<td align="left">Edits a specific message in a thread.</td>
+</tr>
+</tbody>
+</table>
                 
               
               
@@ -445,7 +585,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: ['navigation.expand'],
+          features: [],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

@@ -16,7 +16,7 @@
     
     
       
-        <title>Installation - Django Messages DRF</title>
+        <title>Mixins - Django Messages DRF</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#mixins" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Installation
+              Mixins
             
           </span>
         </div>
@@ -210,14 +210,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
     
     <label class="md-nav__link" for="nav-2">
       Overview
@@ -236,20 +234,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../installation/" class="md-nav__link">
       Installation
     </a>
-    
   </li>
 
         
@@ -315,12 +304,14 @@
       
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Structure
@@ -417,11 +408,76 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../mixins/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Mixins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Mixins
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requireusercontextview" class="md-nav__link">
+    RequireUserContextView
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threadmixin" class="md-nav__link">
+    ThreadMixin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#currentthreaddefault" class="md-nav__link">
+    CurrentThreadDefault
+  </a>
+  
+    <nav class="md-nav" aria-label="CurrentThreadDefault">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -474,6 +530,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requireusercontextview" class="md-nav__link">
+    RequireUserContextView
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threadmixin" class="md-nav__link">
+    ThreadMixin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#currentthreaddefault" class="md-nav__link">
+    CurrentThreadDefault
+  </a>
+  
+    <nav class="md-nav" aria-label="CurrentThreadDefault">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -485,25 +583,95 @@
               
                 
                 
-                <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>$ pip install django-messages-drf
+                <h1 id="mixins">Mixins<a class="headerlink" href="#mixins" title="Permanent link">&para;</a></h1>
+<p>Mixins are a super useful tool when it comes to apply the DRY principles or share functionalities
+across the platform.</p>
+<hr />
+<ol>
+<li><a href="#RequireUserContextView">RequireUserContextView</a></li>
+<li><a href="#ThreadMixin">ThreadMixin</a></li>
+<li><a href="#CurrentThreadDefault">CurrentThreadDefault</a></li>
+</ol>
+<hr />
+<h2 id="requireusercontextview">RequireUserContextView<a class="headerlink" href="#requireusercontextview" title="Permanent link">&para;</a></h2>
+<p>A simplification of a <code>get_serializer_context</code> that can be applied on every serializer that needs
+the user in the <code>context</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">RequireUserContextView</span><span class="p">(</span><span class="n">GenericAPIView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles with Generics of views</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">get_serializer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the serializer instance that should be used for validating and</span>
+<span class="sd">        deserializing input, and for serializing output.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">serializer_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_serializer_class</span><span class="p">()</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_serializer_context</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">serializer_class</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_serializer_context</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_serializer_context</span><span class="p">()</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+            <span class="s1">&#39;request&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">,</span>
+<span class="hll">            <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">,</span>
+</span>        <span class="p">})</span>
+        <span class="k">return</span> <span class="n">context</span>
 </code></pre></div>
-<p>Add <code>django_messages_drf</code> to your <code>INSTALLED_APPS</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="o">...</span>
-  <span class="s2">&quot;django_messages_drf&quot;</span><span class="p">,</span>
-  <span class="o">...</span>
-<span class="p">]</span>
+<h2 id="threadmixin">ThreadMixin<a class="headerlink" href="#threadmixin" title="Permanent link">&para;</a></h2>
+<p>All things common to a thread.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ThreadMixin</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Everything related with a thread, is placed here.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">get_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the thread&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Thread</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;uuid&#39;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">Thread</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a User to whom which the message will be sent&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">get_thead_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a thread by id&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Thread</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;thread_id&#39;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">Thread</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">return</span>
 </code></pre></div>
-<p>Run Django migrations to create <code>django-messages-drf</code> database tables:</p>
-<div class="highlight"><pre><span></span><code>$ python manage.py migrate
+<h2 id="currentthreaddefault">CurrentThreadDefault<a class="headerlink" href="#currentthreaddefault" title="Permanent link">&para;</a></h2>
+<p>Similar to <code>CurrentThreadDefault</code>, this mixin allows a similar behaviour to be injected into the 
+serializer fields as long as the <code>thread</code> is passed into the context.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">CurrentThreadDefault</span><span class="p">:</span>
+    <span class="n">requires_context</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serializer_field</span><span class="p">):</span>
+<span class="hll">        <span class="k">return</span> <span class="n">serializer_field</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s1">&#39;thread&#39;</span><span class="p">]</span>
+</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">()&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 </code></pre></div>
-<p>You'll also want to add <code>`django_messages_drf.urls</code> into your main urlpatterns.</p>
-<div class="highlight"><pre><span></span><code><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># other urls</span>
-    <span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^messages-drf/&quot;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&quot;django_messages_drf.urls&quot;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;django_messages_drf&quot;</span><span class="p">)),</span>
-<span class="p">]</span>
-</code></pre></div>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># serializers.py</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">django_messages.drf.mixins</span> <span class="kn">import</span> <span class="n">CurrentThreadDefault</span>
+</span>
+
+<span class="k">class</span> <span class="nc">MessageSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="n">uuid</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">subject</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">error_messages</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;blank&#39;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;The message cannot be empty&quot;</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">sender</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">HiddenField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">serializers</span><span class="o">.</span><span class="n">CurrentUserDefault</span><span class="p">())</span>
+<span class="hll">    <span class="n">thread</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">HiddenField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">CurrentThreadDefault</span><span class="p">())</span>
+</span></code></pre></div>
                 
               
               
@@ -522,7 +690,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../pagination/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -531,19 +699,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Introduction
+                Pagination
               </div>
             </div>
           </a>
         
         
-          <a href="../overview/url-names/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../utils/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                URLs
+                Utils
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
