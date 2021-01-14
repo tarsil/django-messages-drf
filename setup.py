@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-VERSION = "1.0.2"
+from django_messages_drf import __version__
 
 def read(fname):
     with open(fname) as fp:
@@ -14,7 +14,7 @@ setup(
     name="django-messages-drf",
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
-    version=VERSION,
+    version=__version__,
     url="https://github.com/tiagoarasilva/django-messages-drf",
     license="MIT",
     packages=find_packages(),
@@ -46,8 +46,7 @@ setup(
     tests_require=[
         "django-nose>=1.4.6",
         "factory-boy>=3.0.1",
-        "django-webtest>=1.9.7",
-        "django-downloadview>=2.1.1"
+        "django-webtest>=1.9.7"
     ],
     test_suite="tests.runtests",
     zip_safe=False
