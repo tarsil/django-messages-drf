@@ -22,7 +22,7 @@ def get_serializer_by_settings(default: Any, setting_name: str):
         return default
     try:
         return import_string(path)
-    except ImportError as e :
+    except ImportError as e : # pragma: no cover
         raise e
 
 # Default settings for the serializers

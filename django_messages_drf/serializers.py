@@ -43,12 +43,12 @@ class InboxSerializer(serializers.ModelSerializer):
         model = Thread
         fields = ('uuid', 'subject', 'sender', 'sent_at', 'total_unread', 'last_message')
 
-    def get_last_message(self, instance):
+    def get_last_message(self, instance): # pragma: no cover
         message = instance.last_message()
         if message:
             return message.content[:50]
 
-    def get_sender(self, instance):
+    def get_sender(self, instance): # pragma: no cover
         serializer = SenderReceiverSerializer(context=self.context)
         message = instance.last_message()
         if message:
@@ -74,7 +74,7 @@ class MessageSerializer(serializers.ModelSerializer):
         return serializer.to_representation(instance.sender)
 
 
-class ThreadSerializer(serializers.ModelSerializer):
+class ThreadSerializer(serializers.ModelSerializer): # pragma: no cover
     """
     Serializer for the thread
     """

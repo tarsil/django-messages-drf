@@ -57,7 +57,7 @@ class Pagination(pagination.PageNumberPagination):
         })
 
 
-class SimplePagination(pagination.PageNumberPagination):
+class SimplePagination(pagination.PageNumberPagination): # pragma: no cover
     """
     Custom paginator for REST API responses
     """

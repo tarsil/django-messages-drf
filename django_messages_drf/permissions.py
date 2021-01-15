@@ -34,7 +34,7 @@ class AccessMixin(metaclass=DjangoMessageDRFAuthMeta):
     pass
 
 
-class DjangoMessageDRFAuthMixin(AccessMixin, APIView):
+class DjangoMessageDRFAuthMixin(AccessMixin, APIView): # pragma: no cover
     """
     Base APIView requiring login credentials to access it from the inside of the platform
     Or via request (if known)

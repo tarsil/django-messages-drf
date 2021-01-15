@@ -28,7 +28,7 @@ class RequireUserContextView(GenericAPIView):
         return context
 
 
-class ThreadMixin:
+class ThreadMixin: # pragma: no cover
     """
     Everything related with a thread, is placed here.
     """
@@ -54,7 +54,7 @@ class ThreadMixin:
             return
 
 
-class CurrentThreadDefault:
+class CurrentThreadDefault: # pragma: no cover
     requires_context = True
 
     def __call__(self, serializer_field):

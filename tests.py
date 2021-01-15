@@ -42,6 +42,7 @@ DEFAULT_SETTINGS = dict(
         },
     ],
     STATIC_URL = '/static/',
+
     DJANGO_MESSAGES_DRF_THREAD_SERIALIZER = 'django_messages_drf.tests.utils.SerializerTest'
 )
 
