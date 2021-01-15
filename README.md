@@ -49,7 +49,7 @@ messaging.
 To install django-messages:
 
 ```shell
-$ pip3 install starlette
+$ pip install django-messages-drf
 ```
 
 Add `django_messages_drf` to your `INSTALLED_APPS`:
