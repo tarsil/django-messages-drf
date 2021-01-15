@@ -46,7 +46,8 @@ setup(
     tests_require=[
         "django-nose>=1.4.6",
         "factory-boy>=3.0.1",
-        "django-webtest>=1.9.7"
+        "django-webtest>=1.9.7",
+        "django-downloadview>=2.1.1"
     ],
     test_suite="tests.runtests",
     zip_safe=False

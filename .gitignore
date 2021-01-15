@@ -27,6 +27,7 @@ var/
 # Pipfile
 Pipfile
 Pipfile.lock
+site/
 
 # Installer logs
 pip-log.txt
