@@ -8,8 +8,6 @@ edit_uri: ""
 
 theme:
   name: material
-  features:
-    - navigation.expand
 
   palette:
     # Toggle light mode
@@ -31,14 +29,27 @@ theme:
 markdown_extensions:
   - toc:
       permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 nav:
   - Introduction: 'index.md'
   - Overview:
     - 'installation.md'
-    - 'overview/reference-guide.md'
     - 'overview/url-names.md'
     - 'overview/views.md'
     - 'overview/signals.md'
-  - Views: 'views.md'
+    - 'overview/reference-guide.md'
+  - Structure:
+    - Models: 'models.md'
+    - Views: 'views.md'
+    - Serializers: 'serializers.md'
+    - Settings: 'settings.md'
+    - Permissions: 'permissions.md'
+    - Pagination: 'pagination.md'
+    - Mixins: 'mixins.md'
+    - Utils: 'utils.md'
   - Release Notes: 'release-notes.md'

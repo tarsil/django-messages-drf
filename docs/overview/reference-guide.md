@@ -7,8 +7,9 @@ guide that can be updated at any time.
 
 | URL Name  | View   |
 | :-------- | :----- |
-| `django_messages_drf:inbox`               | `InboxListApiView()` |
-| `django_messages_drf:thread`      | `ThreadListApiView()` |
-| `django_messages_drf:thread-create` | `ThreadCRUDApiView()` |
-| `django_messages_drf:thread-send`       | `ThreadCRUDApiView()` |
-| `django_messages_drf:thread-delete`       | `ThreadCRUDApiView()` |
+| __django_messages_drf:inbox__ | InboxListApiView |
+| __django_messages_drf:thread__ | ThreadListApiView |
+| __django_messages_drf:thread-create__ | ThreadCRUDApiView |
+| __django_messages_drf:thread-send__ | ThreadCRUDApiView |
+| __django_messages_drf:thread-delete__ | ThreadCRUDApiView |
+| __django_messages_drf:message-edit__ | EditMessageApiView |

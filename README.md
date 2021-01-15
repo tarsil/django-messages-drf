@@ -3,6 +3,8 @@
 [![CircleCi](https://img.shields.io/circleci/project/github/tarsil/django-messages-drf.svg)](https://circleci.com/gh/tarsil/django-messages-drf)
 [![codecov](https://codecov.io/gh/tarsil/django-messages-drf/branch/master/graph/badge.svg?token=VfTlWQlGeF)](https://codecov.io/gh/tarsil/django-messages-drf)
 
+__Official Documentation__ - https://tarsil.github.io/django-messages-drf/
+
 ---
 
 ## Table of Contents
@@ -17,9 +19,8 @@
     - [URL Names](#url-names)
     - [Views](#views)
     - [Signals](#signals)
-- [CHANGELOG](#changelog)
-  - [1.0.2](#102)
-  - [1.0.0](#100)
+- [CHANGELOG](docs/release-notes.md)
+- [Documentation and Support](#documentation-and-support)
 - [License](#license)
 
 ---
@@ -109,25 +110,16 @@ UUID.
 - `ThreadCRUDApiView` - Create a new message thread/Reply to Thread
 - `ThreadListApiView` - View specific message thread
 - `ThreadCRUDApiView` - Delete specific message thread
+- `ThreadCRUDApiView` - Delete specific message thread
 
 #### Signals
 
 `message_sent` — `providing_args = ["message", "thread", "reply"]`
 
-## ChangeLog
-
-### 1.0.2
-
-- Added support for python 3.9
-- Fixed tests naming conflicts.
-- Fixed migration issues.
-- Updated README.md to make it clearer.
-- Added CircleCI config
-
-### 1.0.0
-
-- Initial release
-
 ## License
 
 Copyright (c) 2020-present Tiago Silva and contributors under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Documentation and Support
+
+Full documentation for the project is available at https://tarsil.github.io/django-messages-drf/

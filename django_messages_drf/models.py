@@ -81,16 +81,28 @@ class Thread(AuditModel):
         except Message.DoesNotExist:
             return
 
-    def last_message(self, user_to_exclude=None):
+    def last_message(self):
+        """
+        Returns the latest message of the thread. Is the reverse of the `earliest_message`
+        """
+        try:
+            return self.messages.all().latest('sent_at')
+        except Message.DoesNotExist:
+            return
+
+    def last_message_excluding_user(self, user_to_exclude=None):
         """
         Returns the latest message of the thread. Is the reverse of the `earliest_message`
 
         :param user_to_exclude: Returns a list of the messages excluding a given user. This is
         particulary useful for showing the latest message sent in a thread between two different
-        users
+        users.
         """
+        queryset = self.messages.all()
         try:
-            return self.messages.exclude(sender=user_to_exclude).latest('sent_at')
+            if user_to_exclude:
+                queryset = queryset.exclude(sender=user_to_exclude)
+            return queryset.latest('sent_at')
         except Message.DoesNotExist:
             return
 
