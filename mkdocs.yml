@@ -12,8 +12,8 @@ theme:
   palette:
     # Toggle light mode
     - scheme: default
-      primary: pink
-      accent: pink
+      primary: teal
+      accent: teal
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode

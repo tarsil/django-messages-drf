@@ -264,3 +264,9 @@ class EditMessageApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserCont
         return Response(message.data, status=status.HTTP_200_OK)
 
 ```
+
+### General Tip
+
+1. The views follow a similar structure and design everywhere but they can also be overwritten in a 
+normal Django way.
+2. Checkout the [settings](/settings/) page to see how to override the variables.
