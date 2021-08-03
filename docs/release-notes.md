@@ -1,5 +1,10 @@
 # Release Notes
 
+## 1.0.4
+
+- [Bugfix #10](https://github.com/tarsil/django-messages-drf/pull/10). Thank you [kamikaz1k](https://github.com/kamikaz1k)
+- [Bugfix #9](https://github.com/tarsil/django-messages-drf/pull/9). Thank you [kamikaz1k](https://github.com/kamikaz1k)
+
 ## 1.0.3
 
 ### Added
