@@ -48,8 +48,13 @@ class InboxSerializer(serializers.ModelSerializer):
         if message:
             return message.content[:50]
 
+    @property
+    def sender_receiver_klass(self):
+        from .settings import SENDER_RECEIVER_SERIALIZER
+        return SENDER_RECEIVER_SERIALIZER
+
     def get_sender(self, instance): # pragma: no cover
-        serializer = SenderReceiverSerializer(context=self.context)
+        serializer = self.sender_receiver_klass(context=self.context)
         message = instance.last_message()
         if message:
             return serializer.to_representation(message.sender)
@@ -69,8 +74,13 @@ class MessageSerializer(serializers.ModelSerializer):
         model = Message
         exclude = ('id', 'thread',)
 
+    @property
+    def sender_receiver_klass(self):
+        from .settings import SENDER_RECEIVER_SERIALIZER
+        return SENDER_RECEIVER_SERIALIZER
+
     def get_sender(self, instance):
-        serializer = SenderReceiverSerializer(context=self.context)
+        serializer = self.sender_receiver_klass(context=self.context)
         return serializer.to_representation(instance.sender)
 
 

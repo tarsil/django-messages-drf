@@ -6,7 +6,13 @@ from django.conf import settings
 from django.utils.module_loading import import_string
 from typing import Any
 
-from .serializers import (InboxSerializer, ThreadSerializer, ThreadReplySerializer, EditMessageSerializer)
+from .serializers import (
+    EditMessageSerializer,
+    InboxSerializer,
+    SenderReceiverSerializer,
+    ThreadSerializer,
+    ThreadReplySerializer
+)
 
 
 def get_serializer_by_settings(default: Any, setting_name: str):
@@ -30,3 +36,4 @@ INBOX_SERIALIZER = get_serializer_by_settings(InboxSerializer, 'DJANGO_MESSAGES_
 THREAD_SERIALIZER = get_serializer_by_settings(ThreadSerializer, 'DJANGO_MESSAGES_DRF_THREAD_SERIALIZER')
 THREAD_REPLY_SERIALIZER = get_serializer_by_settings(ThreadReplySerializer, 'DJANGO_MESSAGES_DRF_MESSAGE_SERIALIZER')
 EDIT_MESSAGE_SERIALIZER = get_serializer_by_settings(EditMessageSerializer, 'DJANGO_MESSAGES_DRF_EDIT_MESSAGE_SERIALIZER')
+SENDER_RECEIVER_SERIALIZER = get_serializer_by_settings(SenderReceiverSerializer, 'DJANGO_MESSAGES_DRF_SENDER_RECEIVER_SERIALIZER')
