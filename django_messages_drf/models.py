@@ -161,6 +161,10 @@ class Message(models.Model):
     content = models.TextField()
 
     @classmethod
+    def default_new_message_deleted(cls):
+        return getattr(settings, 'DJANGO_MESSAGES_MARK_NEW_THREAD_MESSAGE_AS_DELETED', True)
+
+    @classmethod
     def new_reply(cls, thread, user, content):
         """
         Create a new reply for an existing Thread. Mark thread as unread for all other participants,
@@ -190,7 +194,7 @@ class Message(models.Model):
                 thread = Thread.objects.create(subject=subject)
                 for user in to_users:
                     thread.userthread_set.create(user=user, deleted=False, unread=True)
-                thread.userthread_set.create(user=from_user, deleted=True, unread=False)
+                thread.userthread_set.create(user=from_user, deleted=cls.default_new_message_deleted(), unread=False)
                 msg = cls.objects.create(thread=thread, sender=from_user, content=content)
                 message_sent.send(sender=cls, message=msg, thread=thread, reply=False)
             except OperationalError as e:

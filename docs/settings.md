@@ -1,4 +1,4 @@
-# Settings
+# Serializer Settings
 
 Django Messages DRF allows overriding some settings for the views, which means, instead of creating
 a new view just to apply your own serializer, you can simply override the setting and
@@ -32,3 +32,15 @@ DJANGO_MESSAGES_DRF_THREAD_SERIALIZER = 'myapp.serializers.MyCustomThreadSeriali
 ```
 
 If none of the settings is overridden or is **`None`** , then it will default to the original.
+
+# Behaviour Settings
+
+Django Messages DRF allows overriding some behaviours.
+
+## Overriding
+
+In your **`settings.py`**.
+
+| Setting Name  | Behaviour | Type   | Default |
+| :--------     | :-----    | :----- | :-----  |
+| __DJANGO_MESSAGES_MARK_NEW_THREAD_MESSAGE_AS_DELETED__ | Mark the first message sent as deleted | Boolean | True |

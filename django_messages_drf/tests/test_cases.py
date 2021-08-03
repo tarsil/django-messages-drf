@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.test import TestCase
+from django.test import override_settings, TestCase
 
 import django_messages_drf.tests.factories
 
@@ -51,6 +51,17 @@ class TestMessages(BaseTest):
         self.assertEqual(
             Thread.objects.get(pk=thread.pk).first_message.content,
             message_string)
+
+    @override_settings(DJANGO_MESSAGES_MARK_NEW_THREAD_MESSAGE_AS_DELETED=False)
+    def test_message_methods_with_default_active(self):
+        message_string = "You can't be serious"
+        Message.new_message(
+            self.brosner, [self.jtauber], "Really?", message_string)
+
+        self.assertEqual(Thread.inbox(self.brosner).count(), 1)
+        self.assertEqual(Thread.inbox(self.jtauber).count(), 1)
+        self.assertEqual(Thread.unread(self.brosner).count(), 0)
+        self.assertEqual(Thread.unread(self.jtauber).count(), 1)
 
     def test_ordered(self):
         """

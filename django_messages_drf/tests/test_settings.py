@@ -1,4 +1,10 @@
-from ..settings import (get_serializer_by_settings, InboxSerializer, ThreadSerializer, ThreadReplySerializer, EditMessageSerializer)
+from ..settings import (
+    get_serializer_by_settings,
+    InboxSerializer,
+    ThreadSerializer,
+    ThreadReplySerializer,
+    EditMessageSerializer
+)
 from django.test import TestCase
 from django.test import override_settings
 
