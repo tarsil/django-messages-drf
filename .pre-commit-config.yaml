@@ -35,7 +35,6 @@ repos:
         args:
         - --max-line-length=120
         - --ignore=E731,W503,W504
-        - --exclude=linezap/apps/*/migrations/*,linezap/linezap/*
 -   repo: git://github.com/Lucas-C/pre-commit-hooks.git
     sha: v1.1.9
     hooks:
