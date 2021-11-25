@@ -1,5 +1,9 @@
 # Release Notes
 
+## 1.0.5
+
+- Added `id` field to the ThreadSerializer.
+
 ## 1.0.4
 
 - [Bugfix #10](https://github.com/tarsil/django-messages-drf/pull/10). Thank you [kamikaz1k](https://github.com/kamikaz1k)
@@ -11,7 +15,7 @@
 
 - Settings to override the serializers on the views by using a custom.
 - `EditMessageApiView` allowing editing a message sent from a user of a given thread.
-- `CurrentThreadDefault` similar to `CurrentUserDefault` from Django Rest Framework but for threads. 
+- `CurrentThreadDefault` similar to `CurrentUserDefault` from Django Rest Framework but for threads.
 
 ### Fixed
 

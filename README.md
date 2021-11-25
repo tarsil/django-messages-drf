@@ -41,6 +41,7 @@ messaging.
 | 2.2  | Yes | Yes | Yes | Yes |
 | 3.0  | Yes | Yes | Yes | Yes |
 | 3.1  | Yes | Yes | Yes | Yes |
+| 3.2  | Yes | Yes | Yes | Yes |
 
 ## Documentation
 

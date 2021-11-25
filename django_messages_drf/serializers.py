@@ -93,7 +93,7 @@ class ThreadSerializer(serializers.ModelSerializer): # pragma: no cover
 
     class Meta:
         model = Thread
-        fields = ('subject', 'messages')
+        fields = ('id', 'uuid', 'subject', 'messages')
 
     def get_messages(self, instance):
         serializer = MessageSerializer(many=True, context=self.context)
