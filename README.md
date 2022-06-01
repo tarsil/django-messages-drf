@@ -3,7 +3,7 @@
 [![CircleCi](https://img.shields.io/circleci/project/github/tarsil/django-messages-drf.svg)](https://circleci.com/gh/tarsil/django-messages-drf)
 [![codecov](https://codecov.io/gh/tarsil/django-messages-drf/branch/master/graph/badge.svg?token=VfTlWQlGeF)](https://codecov.io/gh/tarsil/django-messages-drf)
 
-__Official Documentation__ - https://tarsil.github.io/django-messages-drf/
+**Official Documentation** - https://tarsil.github.io/django-messages-drf/
 
 ---
 
@@ -36,12 +36,13 @@ messaging.
 
 #### Supported Django and Python Versions
 
-| Django / Python | 3.6 | 3.7 | 3.8 | 3.9
-| --------------- | --- | --- | --- | ---
-| 2.2  | Yes | Yes | Yes | Yes |
-| 3.0  | Yes | Yes | Yes | Yes |
-| 3.1  | Yes | Yes | Yes | Yes |
-| 3.2  | Yes | Yes | Yes | Yes |
+| Django / Python | 3.6 | 3.7 | 3.8 | 3.9 | 3.10 |
+| --------------- | --- | --- | --- | --- | ---- |
+| 2.2             | Yes | Yes | Yes | Yes | Yes  |
+| 3.0             | Yes | Yes | Yes | Yes | Yes  |
+| 3.1             | Yes | Yes | Yes | Yes | Yes  |
+| 3.2             | Yes | Yes | Yes | Yes | Yes  |
+| 4.0             | Yes | Yes | Yes | Yes | Yes  |
 
 ## Documentation
 
@@ -73,7 +74,7 @@ Add `django_messages_drf.urls` to your project urlpatterns:
 ```python
     urlpatterns = [
         # other urls
-        url(r"^messages-drf/", include("django_messages_drf.urls", namespace="django_messages_drf")),
+        path(r"^messages-drf/", include("django_messages_drf.urls", namespace="django_messages_drf")),
     ]
 ```
 
@@ -81,14 +82,14 @@ Add `django_messages_drf.urls` to your project urlpatterns:
 
 #### URL–View–Template Matrix
 
-| URL Name  | View   |
-| :-------- | :----- |
-| `django_messages_drf:inbox`               | `InboxListApiView` |
-| `django_messages_drf:thread`      | `ThreadListApiView` |
-| `django_messages_drf:thread-create` | `ThreadCRUDApiView` |
-| `django_messages_drf:thread-send`       | `ThreadCRUDApiView` |
-| `django_messages_drf:thread-delete`       | `ThreadCRUDApiView` |
-| `django_messages_drf:message-edit`       | `EditMessageApiView` |
+| URL Name                            | View                 |
+| :---------------------------------- | :------------------- |
+| `django_messages_drf:inbox`         | `InboxListApiView`   |
+| `django_messages_drf:thread`        | `ThreadListApiView`  |
+| `django_messages_drf:thread-create` | `ThreadCRUDApiView`  |
+| `django_messages_drf:thread-send`   | `ThreadCRUDApiView`  |
+| `django_messages_drf:thread-delete` | `ThreadCRUDApiView`  |
+| `django_messages_drf:message-edit`  | `EditMessageApiView` |
 
 ## Documentation and Support
 
