@@ -74,7 +74,7 @@ Add `django_messages_drf.urls` to your project urlpatterns:
 ```python
     urlpatterns = [
         # other urls
-        url(r"^messages-drf/", include("django_messages_drf.urls", namespace="django_messages_drf")),
+        path(r"^messages-drf/", include("django_messages_drf.urls", namespace="django_messages_drf")),
     ]
 ```
 

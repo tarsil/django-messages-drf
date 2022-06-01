@@ -116,12 +116,12 @@ jobs:
   py310dj31:
     <<: *common
     docker:
-      - image: circleci/python:3.9
+      - image: circleci/python:3.10
         environment: TOXENV=py310-dj31
   py310dj32:
     <<: *common
     docker:
-      - image: circleci/python:3.9
+      - image: circleci/python:3.10
         environment: TOXENV=py310-dj32
   py310dj40:
     <<: *common

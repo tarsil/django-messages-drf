@@ -1,5 +1,5 @@
-from django.conf.urls import include, url
+from django.urls import include, path
 
 urlpatterns = [
-    url(r"^", include("django_messages_drf.urls", namespace="django_messages_drf")),
+    path("", include("django_messages_drf.urls", namespace="django_messages_drf")),
 ]
