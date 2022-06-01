@@ -17,11 +17,11 @@ common: &common
     - run:
         name: upload coverage report
         command: |
-           if [[ "$UPLOAD_COVERAGE" != 0 ]]; then
-               PATH=$HOME/.local/bin:$PATH
-               coverage xml
-               ~/.local/bin/codecov --required -X search gcov pycov -f coverage.xml --flags $CIRCLE_JOB
-           fi
+          if [[ "$UPLOAD_COVERAGE" != 0 ]]; then
+              PATH=$HOME/.local/bin:$PATH
+              coverage xml
+              ~/.local/bin/codecov --required -X search gcov pycov -f coverage.xml --flags $CIRCLE_JOB
+          fi
     - save_cache:
         paths:
           - .tox
@@ -38,87 +38,101 @@ jobs:
         environment:
           - TOXENV=checkqa
           - UPLOAD_COVERAGE=0
-  py36dj22:
-    <<: *common
-    docker:
-      - image: circleci/python:3.6
-        environment:
-          TOXENV=py36-dj22
-  py36dj30:
-    <<: *common
-    docker:
-      - image: circleci/python:3.6
-        environment:
-          TOXENV=py36-dj30
-  py36dj31:
-    <<: *common
-    docker:
-      - image: circleci/python:3.6
-        environment:
-          TOXENV=py36-dj31
   py37dj22:
     <<: *common
     docker:
       - image: circleci/python:3.7
-        environment:
-          TOXENV=py37-dj22
+        environment: TOXENV=py37-dj22
   py37dj30:
     <<: *common
     docker:
       - image: circleci/python:3.7
-        environment:
-          TOXENV=py37-dj30
+        environment: TOXENV=py37-dj30
   py37dj31:
     <<: *common
     docker:
       - image: circleci/python:3.7
-        environment:
-          TOXENV=py37-dj31
+        environment: TOXENV=py37-dj31
+  py37dj40:
+    <<: *common
+    docker:
+      - image: circleci/python:3.7
+        environment: TOXENV=py37-dj40
   py38dj22:
     <<: *common
     docker:
       - image: circleci/python:3.8
-        environment:
-          TOXENV=py38-dj22
+        environment: TOXENV=py38-dj22
   py38dj30:
     <<: *common
     docker:
       - image: circleci/python:3.8
-        environment:
-          TOXENV=py38-dj30
+        environment: TOXENV=py38-dj30
   py38dj31:
     <<: *common
     docker:
       - image: circleci/python:3.8
-        environment:
-          TOXENV=py38-dj31
+        environment: TOXENV=py38-dj31
+  py38dj40:
+    <<: *common
+    docker:
+      - image: circleci/python:3.8
+        environment: TOXENV=py38-dj40
   py39dj22:
     <<: *common
     docker:
       - image: circleci/python:3.9
-        environment:
-          TOXENV=py39-dj22
+        environment: TOXENV=py39-dj22
   py39dj30:
     <<: *common
     docker:
       - image: circleci/python:3.9
-        environment:
-          TOXENV=py39-dj30
+        environment: TOXENV=py39-dj30
   py39dj31:
     <<: *common
     docker:
       - image: circleci/python:3.9
-        environment:
-          TOXENV=py39-dj31
+        environment: TOXENV=py39-dj31
+  py39dj32:
+    <<: *common
+    docker:
+      - image: circleci/python:3.9
+        environment: TOXENV=py39-dj32
+  py39dj40:
+    <<: *common
+    docker:
+      - image: circleci/python:3.9
+        environment: TOXENV=py39-dj40
+  py310dj22:
+    <<: *common
+    docker:
+      - image: circleci/python:3.10
+        environment: TOXENV=py310-dj22
+  py310dj30:
+    <<: *common
+    docker:
+      - image: circleci/python:3.10
+        environment: TOXENV=py310-dj30
+  py310dj31:
+    <<: *common
+    docker:
+      - image: circleci/python:3.9
+        environment: TOXENV=py310-dj31
+  py310dj32:
+    <<: *common
+    docker:
+      - image: circleci/python:3.9
+        environment: TOXENV=py310-dj32
+  py310dj40:
+    <<: *common
+    docker:
+      - image: circleci/python:3.10
+        environment: TOXENV=py310-dj40
 
 workflows:
   version: 2
   test:
     jobs:
-      # - lint
-      - py36dj22
-      - py36dj30
-      - py36dj31
       - py37dj22
       - py37dj30
       - py37dj31
@@ -128,3 +142,10 @@ workflows:
       - py39dj22
       - py39dj30
       - py39dj31
+      - py39dj32
+      - py39dj40
+      - py310dj22
+      - py310dj30
+      - py310dj31
+      - py310dj32
+      - py310dj40

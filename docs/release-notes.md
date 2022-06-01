@@ -1,5 +1,10 @@
 # Release Notes
 
+## 1.0.6
+
+- Preparing to drop support for python 3.6.
+- Fix `providing_args` from signals as it is deprecated in Django 4.
+
 ## 1.0.5
 
 - Added `id` field to the ThreadSerializer.
