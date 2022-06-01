@@ -15,13 +15,14 @@ messaging.
 
 ## Requirements
 
-Python 3.6+
+Python 3.7+
 
 ## Supported Django and Python Versions
 
-| Django / Python | 3.6 | 3.7 | 3.8 | 3.9
-| --------------- | --- | --- | --- | ---
-| 2.2  | Yes | Yes | Yes | Yes |
-| 3.0  | Yes | Yes | Yes | Yes |
-| 3.1  | Yes | Yes | Yes | Yes |
-| 3.2  | Yes | Yes | Yes | Yes |
+| Django / Python | 3.6 | 3.7 | 3.8 | 3.9 | 3.10 |
+| --------------- | --- | --- | --- | --- | ---- |
+| 2.2             | Yes | Yes | Yes | Yes | Yes  |
+| 3.0             | Yes | Yes | Yes | Yes | Yes  |
+| 3.1             | Yes | Yes | Yes | Yes | Yes  |
+| 3.2             | Yes | Yes | Yes | Yes | Yes  |
+| 4.0             | Yes | Yes | Yes | Yes | Yes  |
