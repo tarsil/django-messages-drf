@@ -3,22 +3,23 @@
 [![CircleCi](https://img.shields.io/circleci/project/github/tarsil/django-messages-drf.svg)](https://circleci.com/gh/tarsil/django-messages-drf)
 [![codecov](https://codecov.io/gh/tarsil/django-messages-drf/branch/master/graph/badge.svg?token=VfTlWQlGeF)](https://codecov.io/gh/tarsil/django-messages-drf)
 
-**Official Documentation** - https://tarsil.github.io/django-messages-drf/
+**Official Documentation** - <https://django-messages-drf.tarsild.io>
 
 ---
 
 ## Table of Contents
 
-- [About Django Messages DRF](#about-django-messages-drf)
-  - [Overview](#overview)
-  - [Versions](#supported-django-and-python-versions)
-- [Documentation](#documentation)
-  - [Installation](#installation)
-  - [Reference Guide](#reference-guide)
-    - [Matrix](#url–view–template-matrix)
-- [CHANGELOG](docs/release-notes.md)
-- [Documentation and Support](#documentation-and-support)
-- [License](#license)
+- [Django Messages DRF](#django-messages-drf)
+  - [Table of Contents](#table-of-contents)
+  - [About Django Messages DRF](#about-django-messages-drf)
+    - [Overview](#overview)
+      - [Supported Django and Python Versions](#supported-django-and-python-versions)
+  - [Documentation](#documentation)
+    - [Installation](#installation)
+    - [Reference Guide](#reference-guide)
+      - [URL–View–Template Matrix](#urlviewtemplate-matrix)
+  - [Documentation and Support](#documentation-and-support)
+  - [License](#license)
 
 ---
 
@@ -93,7 +94,7 @@ Add `django_messages_drf.urls` to your project urlpatterns:
 
 ## Documentation and Support
 
-Full documentation for the project is available at https://tarsil.github.io/django-messages-drf/
+Full documentation for the project is available at <https://django-messages-drf.tarsild.io>
 
 ## License
 
