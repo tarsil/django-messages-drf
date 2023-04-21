@@ -245,7 +245,7 @@ class BaseTest(WebTest):
             url = reverse("django_messages_drf:message-edit",
                           kwargs={
                               'user_id': user.id,
-                              'thread_uuid': thread.id
+                              'thread_uuid': thread.uuid
                               }
                           )
 
@@ -272,7 +272,7 @@ class BaseTest(WebTest):
             url = reverse("django_messages_drf:message-edit",
                           kwargs={
                               'user_id': user.id,
-                              'thread_uuid': thread.id
+                              'thread_uuid': thread.uuid
                               }
                           )
 
@@ -299,7 +299,7 @@ class BaseTest(WebTest):
             url = reverse("django_messages_drf:message-edit",
                           kwargs={
                               'user_id': user.id,
-                              'thread_uuid': thread.id
+                              'thread_uuid': thread.uuid
                               }
                           )
 
@@ -328,7 +328,7 @@ class BaseTest(WebTest):
             url = reverse("django_messages_drf:message-edit",
                           kwargs={
                               'user_id': user.id,
-                              'thread_uuid': thread.id
+                              'thread_uuid': thread.uuid
                               }
                           )
 
