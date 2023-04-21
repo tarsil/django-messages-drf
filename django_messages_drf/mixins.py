@@ -49,7 +49,7 @@ class ThreadMixin: # pragma: no cover
     def get_thead_by_id(self):
         """Gets a thread by id"""
         try:
-            return Thread.objects.get(id=self.kwargs.get('thread_id'))
+            return Thread.objects.get(id=self.kwargs.get('thread_uuid'))
         except Thread.DoesNotExist:
             return
 
