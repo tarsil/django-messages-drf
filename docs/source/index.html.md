@@ -30,7 +30,6 @@ A special thanks to pinax for inspiring me to do this and use some ideas.
 
 Tested, easy to customize, up-to-date with Python 3.10 app that provided private user-to-user threaded messaging.
 
-
 ## Supported Django and Python Versions
 
 | Django / Python | 3.6 | 3.7 | 3.8 | 3.9 | 3.10 |
@@ -118,7 +117,6 @@ This endpoint retrieves all threads that have been sent to current user (initiat
 Remember — this inbox works like Gmail thread functionality
 </aside>
 
-
 ## List Messages
 
 ```python
@@ -129,9 +127,9 @@ This endpoint retrieves all messages that are within a thread.
 
 ### Route Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-uuid | true | The UUID of the thread.
+| Parameter | Required | Description             |
+| --------- | -------- | ----------------------- |
+| uuid      | true     | The UUID of the thread. |
 
 ### HTTP Request
 
@@ -146,22 +144,23 @@ User can reply to a message that he recieved. This way he adds to a thread. When
 ```python
 path('message/thread/<user_id>/send/', views.ThreadCRUDApiView.as_view(), name='thread-create'),
 ```
+
 > This View can also take another url parameter - `thread_uuid` (see below)
 
 This endpoint sends a new message to a user by initiating new thread.
 
 ### Route Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-user_id | true | The id of a user we want to send a message to.
+| Parameter | Required | Description                                    |
+| --------- | -------- | ---------------------------------------------- |
+| user_id   | true     | The id of a user we want to send a message to. |
 
 ### Body Parameters
 
-| Parameter | Description | Method |
-| :-------- | :----- | :----- |
-| message | The content of the message | POST |
-| subject | The subject of the message | POST |
+| Parameter | Description                | Method |
+| :-------- | :------------------------- | :----- |
+| message   | The content of the message | POST   |
+| subject   | The subject of the message | POST   |
 
 ### HTTP Request
 
@@ -171,29 +170,29 @@ user_id | true | The id of a user we want to send a message to.
 User can reply to a message that he recieved. This way he adds to a thread. When a message is replied to, the person who initiated the thread will see it in inbox.
 </aside>
 
-
 ## Expand on thread
 
 ```python
 path('message/thread/<uuid>/<user_id>/send/', views.ThreadCRUDApiView.as_view(), name='thread-send'),
 ```
+
 > This is the same View that initiates a thread (see above).
 
 This endpoint sends a reply to an existing message.
 
 ### Route Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-uuid | true | The id of a thread we want to send a reply to.
-user_id | true | The id of a user we want to send a message to.
+| Parameter | Required | Description                                    |
+| --------- | -------- | ---------------------------------------------- |
+| uuid      | true     | The id of a thread we want to send a reply to. |
+| user_id   | true     | The id of a user we want to send a message to. |
 
 ### Body Parameters
 
-| Parameter | Description | Method |
-| :-------- | :----- | :----- |
-| message | The content of the message | POST |
-| subject | The subject of the message | POST |
+| Parameter | Description                | Method |
+| :-------- | :------------------------- | :----- |
+| message   | The content of the message | POST   |
+| subject   | The subject of the message | POST   |
 
 ### HTTP Request
 
@@ -202,7 +201,6 @@ user_id | true | The id of a user we want to send a message to.
 <aside class="notics">
 Sending first message or sending another message with URL with only `<user_id>` param always initiates a thread. This was we always have a UUID of a thread to reply to.
 </aside>
-
 
 ## Edit message
 
@@ -216,24 +214,23 @@ This endpoint edits a message from within a thread.
 
 ### Route Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-thread_id | true | The id of a message we want to edit.
-user_id | true | The id of a user we want to send a message to.
+| Parameter | Required | Description                                    |
+| --------- | -------- | ---------------------------------------------- |
+| thread_id | true     | The id of a message we want to edit.           |
+| user_id   | true     | The id of a user we want to send a message to. |
 
 <!-- Thread_id or uuid ? -->
 
 ### Body Parameters
 
-| Parameter | Description | Method |
-| :-------- | :----- | :----- |
-| message | The content of the message | POST |
-| subject | The subject of the message | POST |
+| Parameter | Description                | Method |
+| :-------- | :------------------------- | :----- |
+| message   | The content of the message | POST   |
+| subject   | The subject of the message | POST   |
 
 ### HTTP Request
 
 `GET http://localhost:8000/api/messages-drf/message/thread/<user_id>/<thread_id>/edit/`
-
 
 # Views
 
@@ -242,7 +239,6 @@ to apply in your projects. All the views are in Django Rest Framework and allowi
 up to a certain level.
 
 All of the serializers are provided by the settings and allows overriding from there.
-
 
 ## InboxListApiView
 
@@ -342,7 +338,7 @@ class ThreadListApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserConte
 
 ### Tips
 
-The same logic for __ThreadListApiView__ is the same applied for [InboxListApiView](#tips) by
+The same logic for **ThreadListApiView** is the same applied for [InboxListApiView](#tips) by
 overriding the default **`serializer_class`**.
 
 ```python
@@ -417,7 +413,7 @@ class ThreadCRUDApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserConte
 
 ### Tips
 
-The same logic for __ThreadCRUDApiView__ is the same applied for [InboxListApiView](#tips) by
+The same logic for **ThreadCRUDApiView** is the same applied for [InboxListApiView](#tips) by
 overriding the default **`serializer_class`**.
 
 ```python
@@ -501,7 +497,6 @@ class EditMessageApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserCont
 Mixins are a super useful tool when it comes to apply the DRY principles or share functionalities
 across the platform.
 
-
 ## RequireUserContextView
 
 A simplification of a `get_serializer_context` that can be applied on every serializer that needs
@@ -563,7 +558,7 @@ class ThreadMixin:
 
 ## CurrentThreadDefault
 
-Similar to `CurrentThreadDefault`, this mixin allows a similar behaviour to be injected into the 
+Similar to `CurrentThreadDefault`, this mixin allows a similar behaviour to be injected into the
 serializer fields as long as the `thread` is passed into the context.
 
 ```python
@@ -600,7 +595,6 @@ class MessageSerializer(serializers.ModelSerializer):
 
 We decided to use UUIDs to make harder to make associations by using it but not using as primary
 key.
-
 
 ## Thread
 
@@ -813,12 +807,10 @@ class Message(models.Model):
 When creating a new message, the default behavior is calling the `new_message` or `reply_message`,
 depending of the type.
 
-
 # Pagination
 
 Two custom pagination classes are provided for the application. The information was gathered from
 [here](https://gist.github.com/tarsil/6255492c273b682bb329ba3f8d623754).
-
 
 ## Pagination class
 
@@ -871,9 +863,6 @@ class SimplePagination(pagination.PageNumberPagination):
             'data': data
         })
 ```
-
-
-
 
 # Permissions
 
@@ -960,7 +949,6 @@ permission_classes = [IsAuthenticated, MyPermission]
 
 ### Without DjangoMessageDRFAuthMixin
 
-
 ```python
 from rest_framework.views import APIView
 
@@ -982,7 +970,6 @@ class MyCustomView(BaseView):
 
 This won't have the same result as the `DjangoMessageDRFAuthMixin` because what is doing is actually
 reassigning the `permission_classes` from the `BaseView` to the `MyCustomView`.
-
 
 # Serializers
 
@@ -1023,7 +1010,6 @@ class SenderSerializer(serializers.ModelSerializer):
         fields = ('first_name', 'last_name', 'email')
 ```
 
-
 # Serializer Settings
 
 Django Messages DRF allows overriding some settings for the views, which means, instead of creating
@@ -1037,12 +1023,12 @@ you wish to override the current defaults.
 
 In your **`settings.py`**.
 
-| Setting Name  | View | Default |
-| :-------- | :----- | :----- |
-| __DJANGO_MESSAGES_DRF_INBOX_SERIALIZER__ | InboxListApiView | InboxSerializer |
-| __DJANGO_MESSAGES_DRF_THREAD_SERIALIZER__ | ThreadListApiView | ThreadSerializer |
-| __DJANGO_MESSAGES_DRF_MESSAGE_SERIALIZER__ | ThreadCRUDApiView | ThreadReplySerializer |
-| __DJANGO_MESSAGES_DRF_EDIT_MESSAGE_SERIALIZER__ | EditMessageApiView | EditMessageSerializer |
+| Setting Name                                    | View               | Default               |
+| :---------------------------------------------- | :----------------- | :-------------------- |
+| **DJANGO_MESSAGES_DRF_INBOX_SERIALIZER**        | InboxListApiView   | InboxSerializer       |
+| **DJANGO_MESSAGES_DRF_THREAD_SERIALIZER**       | ThreadListApiView  | ThreadSerializer      |
+| **DJANGO_MESSAGES_DRF_MESSAGE_SERIALIZER**      | ThreadCRUDApiView  | ThreadReplySerializer |
+| **DJANGO_MESSAGES_DRF_EDIT_MESSAGE_SERIALIZER** | EditMessageApiView | EditMessageSerializer |
 
 ## Usage
 
@@ -1067,10 +1053,9 @@ Django Messages DRF allows overriding some behaviours.
 
 In your **`settings.py`**.
 
-| Setting Name  | Behaviour | Type   | Default |
-| :--------     | :-----    | :----- | :-----  |
-| __DJANGO_MESSAGES_MARK_NEW_THREAD_MESSAGE_AS_DELETED__ | Mark the first message sent as deleted | Boolean | True |
-
+| Setting Name                                           | Behaviour                              | Type    | Default |
+| :----------------------------------------------------- | :------------------------------------- | :------ | :------ |
+| **DJANGO_MESSAGES_MARK_NEW_THREAD_MESSAGE_AS_DELETED** | Mark the first message sent as deleted | Boolean | True    |
 
 # Utils
 
@@ -1092,9 +1077,6 @@ to filter by dates.
 This can be extended and add more information such as **`created_by`** or **`modified_by`**
 where those are users of the application.
 
-
-
-
 # Signals
 
 ## Message sent
@@ -1104,8 +1086,8 @@ We only provide one signal at the moment. This signal fires off after every mess
 ```python
 message_sent = Signal(providing_args=["message", "thread", "reply"])
 ```
-<!-- Creating new threads also fires it off? -->
 
+<!-- Creating new threads also fires it off? -->
 
 # Release Notes
 
