@@ -32,6 +32,17 @@ class InboxListApiView(DjangoMessageDRFAuthMixin, RequireUserContextView, ListAP
         queryset = Thread.inbox(self.request.user)
         return Thread.ordered(queryset)
 
+class SentboxListApiView(DjangoMessageDRFAuthMixin, RequireUserContextView, ListAPIView):
+    """
+    Returns the sentbox for the logged-in user
+    """
+    serializer_class = INBOX_SERIALIZER
+    pagination_class = Pagination
+
+    def get_queryset(self):
+        queryset = Thread.sentbox(self.request.user)
+        return Thread.ordered(queryset)
+
 
 class ThreadListApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserContextView, ListAPIView):
     """
@@ -50,18 +61,15 @@ class ThreadListApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserConte
 
 class ThreadCRUDApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserContextView, APIView):
     """
-    View that allows the reply of a specific message as well as the
-    We will apply some pagination to return a list for the results and therefore
-
-    1. This API gets or creates the Thread
-    2. If a UUID is passed, then a Thread is validated and created but if only a user_id is
-    passed, then it will create a new thread and start a conversation.
+    Creating, Deleting and Following up on existing thread. 
+    If a UUID is passed, then a Thread is validated and parameters are used to create a reply-message.
+    If only a user_id is passed, then new thread is created (conversation which can be followed up has started).
     """
     serializer_class = THREAD_REPLY_SERIALIZER
 
     def post(self, request, uuid=None, *args, **kwargs):
         """
-        Replies a mensage in given thread
+        Replies a message in a given thread. 
         """
         thread = self.get_thread() if uuid else None
         user = self.get_user()
@@ -81,6 +89,7 @@ class ThreadCRUDApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserConte
 
         else:
             msg = Message.new_reply(thread, self.request.user, serializer.data.get('message'))
+            thread.sent_by = self.request.user
             thread.subject = subject
             thread.save()
 
@@ -122,7 +131,7 @@ class EditMessageApiView(DjangoMessageDRFAuthMixin, ThreadMixin, RequireUserCont
         })
         return context
 
-    def put(self, request, user_id, thread_id, *args, **kwargs):
+    def put(self, request, user_id, thread_uuid, *args, **kwargs):
         """
         Edits a mensage in given thread.
 

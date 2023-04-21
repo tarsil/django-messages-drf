@@ -30,6 +30,11 @@ class Thread(AuditModel):
         return cls.objects.filter(userthread__user=user, userthread__deleted=False)
 
     @classmethod
+    def sentbox(cls, user):
+        """Returns the sentbox of a given user"""
+        return cls.objects.filter(userthread__sent_by=user, userthread__deleted=False)
+
+    @classmethod
     def deleted(cls, user):
         """Returns the deleted messages of a given user"""
         return cls.objects.filter(userthread__user=user, userthread__deleted=True)
@@ -142,6 +147,7 @@ class UserThread(models.Model):
 
     thread = models.ForeignKey(Thread, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    sent_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     unread = models.BooleanField()
     deleted = models.BooleanField()

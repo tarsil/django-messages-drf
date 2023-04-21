@@ -6,9 +6,10 @@ app_name = "django_messages_drf"
 
 urlpatterns = [
     path('inbox/', views.InboxListApiView.as_view(), name='inbox'),
-    path('message/thread/<uuid>/', views.ThreadListApiView.as_view(), name='thread'),
-    path('message/thread/<user_id>/send/', views.ThreadCRUDApiView.as_view(), name='thread-create'),
-    path('message/thread/<uuid>/<user_id>/send/', views.ThreadCRUDApiView.as_view(), name='thread-send'),
-    path('message/thread/<user_id>/<thread_id>/edit/', views.EditMessageApiView.as_view(), name='message-edit'),
-    path('thread/<uuid>/delete', views.ThreadCRUDApiView.as_view(), name='thread-delete'),
+    path('threads/', views.SentboxListApiView.as_view(), name='sentbox'),
+    path('threads/<uuid>/messages/', views.ThreadListApiView.as_view(), name='thread'),
+    path('threads/<user_id>', views.ThreadCRUDApiView.as_view(), name='thread-create'),
+    path('threads/<user_id>/<uuid>', views.ThreadCRUDApiView.as_view(), name='thread-send'),
+    path('threads/<user_id>/<thread_uuid>', views.EditMessageApiView.as_view(), name='message-edit'),
+    path('threads/<uuid>', views.ThreadCRUDApiView.as_view(), name='thread-delete'),
 ]
